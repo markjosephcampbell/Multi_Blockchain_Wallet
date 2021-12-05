@@ -2,6 +2,8 @@
 import subprocess
 import json
 import os
+import web3
+import bit
 from dotenv import load_dotenv
 
 # Load and set environment variables
@@ -24,7 +26,11 @@ coins = {BTCTEST:derive_wallets(BTCTEST),ETH:derive_wallets(ETH)}
 
 
 # Create a function called `priv_key_to_account` that converts privkey strings to account objects.
-def priv_key_to_account():
+def priv_key_to_account(coin, priv_key):
+    if coin == BTCTEST:
+        return bit.PrivateKeyTestnet(priv_key)
+    if coin == ETH:
+        return web3.eth.Account.privateKeyToAccount(priv_key)
     pass
 
 # Create a function called `create_tx` that creates an unsigned transaction appropriate metadata.
@@ -35,4 +41,5 @@ def create_tx():
 def send_tx():
     pass
 
-print(mnemonic)
+print(priv_key_to_account(BTCTEST, coins[BTCTEST][0]['privkey']))
+print(priv_key_to_account(ETH, coins[ETH][0]['privkey']))
