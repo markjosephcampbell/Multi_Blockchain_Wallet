@@ -4,33 +4,30 @@
 
 ## Background
 
-Your new startup is focusing on building a portfolio management system that supports not only traditional assets
+My new startup is focusing on building a portfolio management system that supports not only traditional assets
 like gold, silver, stocks, etc, but crypto-assets as well! The problem is, there are so many coins out there! It's
-a good thing you understand how HD wallets work, since you'll need to build out a system that can create them.
+a good thing I understand how HD wallets work, since I needed to build out a system that can create them.
 
-You're in a race to get to the market. There aren't as many tools available in Python for this sort of thing, yet.
-Thankfully, you've found a command line tool, `hd-wallet-derive` that supports not only BIP32, BIP39, and BIP44, but
-also supports non-standard derivation paths for the most popular wallets out there today! However, you need to integrate
-the script into your backend with your dear old friend, Python.
+In a race to get to the market, there aren't as many tools available in Python for this sort of thing, yet.
+Thankfully, I've found a command line tool, `hd-wallet-derive` that supports not only BIP32, BIP39, and BIP44, but
+also supports non-standard derivation paths for the most popular wallets out there today! However, I needed to integrate
+the script into my backend with Python.
 
-Once you've integrated this "universal" wallet, you can begin to manage billions of addresses across 300+ coins, giving
-you a serious edge against the competition.
-
-In this assignment, however, you will only need to get 2 coins working: Ethereum and Bitcoin Testnet.
-Ethereum keys are the same format on any network, so the Ethereum keys should work with your custom networks or testnets.
+In this assignment, I needed to get 2 coins working: Ethereum and Bitcoin Testnet.
+Ethereum keys are the same format on any network, so the Ethereum keys worked with my custom networks or testnets.
 
 ## Dependencies
 
-The following dependencies are required for this assignment and were likely already installed as part of your preparation for in-class activities. 
+The following dependencies were required for this assignment.
 
 > **Important:** If you have _not_ already installed the dependencies listed below, you may do so by following the instructions found in the following guides:
   > - [HD Wallet Derive Installation Guide](Resources/HD_Wallet_Derive_Install_Guide.md) 
   > - [Blockchain TX Installation Guide](Resources/Blockchain_TX_Install_Guide.md).
 
 **Dependencies List:**
-- PHP must be installed on your operating system.
+- PHP was installed on my operating system.
 
-- You will need to clone the [`hd-wallet-derive`](https://github.com/dan-da/hd-wallet-derive) tool.
+- I cloned the [`hd-wallet-derive`](https://github.com/dan-da/hd-wallet-derive) tool.
 
 - [`bit`](https://ofek.github.io/bit/) Python Bitcoin library.
 
@@ -41,25 +38,17 @@ The following dependencies are required for this assignment and were likely alre
 
 ### 1. Project setup
 
-- Create a project directory called `wallet` and `cd` into it.
+- Created a project directory called `wallet` and `cd` into it.
 
-- Clone the `hd-wallet-derive` tool into this folder and install it using the [HD Wallet Derive Installation Guide](Resources/HD_Wallet_Derive_Install_Guide.md) 
+- Cloned the `hd-wallet-derive` tool into this folder and install it using the [HD Wallet Derive Installation Guide](Resources/HD_Wallet_Derive_Install_Guide.md) 
 
-- Create a symlink called `derive` for the `hd-wallet-derive/hd-wallet-derive.php` script. This will clean up the command needed to run the script in our code, as we can call `./derive` instead of `./hd-wallet-derive/hd-wallet-derive.php`: 
+- Created a symlink called `derive` for the `hd-wallet-derive/hd-wallet-derive.php` script. This cleaned up the command needed to run the script in my code, so I could call `./derive` instead of `./hd-wallet-derive/hd-wallet-derive.php`: 
 
-  - Make sure you are in the top level project directory - in this case the directory named `wallet`. 
+  - Made sure I was in the top level project directory - in this case the directory named `wallet`. 
   
-  - **Mac Users:** Run the following command: `ln -s hd-wallet-derive/hd-wallet-derive.php derive`. 
+  - As a **Mac Users:** I ran the following command: `ln -s hd-wallet-derive/hd-wallet-derive.php derive`. 
   
-  - **Windows Users:** Creating symlinks is not supported by default on Windows, only reading them, so Windows users must perform the following steps:
-
-    - Open up Git-Bash as an administrator (right-click on Git-Bash in the start menu).
-
-    - Within `bash`, run the command `export MSYS=winsymlinks:nativestrict`.
-    
-    - Run the following command: `ln -s hd-wallet-derive/hd-wallet-derive.php derive`. 
-
-  - Test that you can run the `./derive` script properly, by running the following command.  
+  - Tested that you can run the `./derive` script properly, by running the following command.  
 
     - ```
       ./derive --key=xprv9zbB6Xchu2zRkf6jSEnH9vuy7tpBuq2njDRr9efSGBXSYr1QtN8QHRur28QLQvKRqFThCxopdS1UD61a5q6jGyuJPGLDV9XfYHQto72DAE8 --cols=path,address --coin=ZEC --numderive=3 -g
